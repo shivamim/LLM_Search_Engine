@@ -57,7 +57,7 @@ if prompt := st.chat_input(placeholder="Ask me anything..."):
 st.markdown("""
 <style>
     body {
-        background-image: url('https://pixabay.com/vectors/chatbot-bot-chat-robot-talk-6626193/');
+        background-image: url('https://cdn.pixabay.com/photo/2021/09/15/08/13/chatbot-6626193_1280.png');
         background-size: cover;
         background-position: center;
         color: #333; /* Default text color */
