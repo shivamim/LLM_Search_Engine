@@ -3,7 +3,7 @@ from langchain_groq import ChatGroq
 from langchain_community.utilities import ArxivAPIWrapper, WikipediaAPIWrapper
 from langchain_community.tools import ArxivQueryRun, WikipediaQueryRun, DuckDuckGoSearchRun
 from langchain.agents import initialize_agent, AgentType
-from langchain.callbacks import StreamlitCallbackHandler
+from langchain_community.callbacks.streamlit import StreamlitCallbackHandler  # Updated import
 import os
 
 # Load API keys from Streamlit secrets
@@ -43,13 +43,19 @@ if prompt := st.chat_input(placeholder="Ask me anything..."):
     llm = ChatGroq(groq_api_key=groq_api_key, model_name="Llama3-8b-8192", streaming=True)
     tools = [search, arxiv, wiki]
 
-    search_agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, handling_parsing_errors=True)
+    # Fix the parameter name
+    search_agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, handle_parsing_errors=True)
 
     with st.chat_message("assistant"):
         st_cb = StreamlitCallbackHandler(st.container(), expand_new_thoughts=False)
-        response = search_agent.run(st.session_state.messages, callbacks=[st_cb])
-        st.session_state.messages.append({'role': 'assistant', "content": response})
-        st.write(response)
+        try:
+            response = search_agent.run(st.session_state.messages, callbacks=[st_cb])
+            st.session_state.messages.append({'role': 'assistant', "content": response})
+            st.write(response)
+        except ValueError as ve:
+            st.error(f"A ValueError occurred: {str(ve)}")
+        except Exception as e:
+            st.error(f"An unexpected error occurred: {str(e)}")
 
 # UI Enhancements
 st.markdown("""
