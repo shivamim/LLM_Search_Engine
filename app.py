@@ -56,10 +56,31 @@ if prompt := st.chat_input(placeholder="Ask me anything..."):
 # UI Enhancements
 st.markdown("""
 <style>
-    .css-1d391kg {background-color: #f0f2f6;}
-    .st-chat-message {margin-bottom: 10px;}
-    .st-chat-message-user {background-color: #e8f0fe; color: #333;}
-    .st-chat-message-assistant {background-color: #e1f5fe; color: #333;}
-    .stTextInput input {background-color: #fff; border: 1px solid #ccc;}
+    body {
+        background-image: url('https://pixabay.com/vectors/chatbot-bot-chat-robot-talk-6626193/');
+        background-size: cover;
+        background-position: center;
+        color: #333; /* Default text color */
+    }
+    .st-chat-message {
+        margin-bottom: 10px;
+        border-radius: 10px; /* Rounded corners for chat messages */
+        padding: 10px; /* Padding for chat messages */
+    }
+    .st-chat-message-user {
+        background-color: #e8f0fe; /* User message background */
+        color: #333; /* User message text color */
+    }
+    .st-chat-message-assistant {
+        background-color: #e1f5fe; /* Assistant message background */
+        color: #333; /* Assistant message text color */
+    }
+    .stTextInput input {
+        background-color: #f9f9f9; /* Light background color */
+        border: 2px solid #ccc; /* Light gray border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px; /* Padding for comfort */
+        font-size: 16px; /* Larger font size */
+    }
 </style>
 """, unsafe_allow_html=True)
