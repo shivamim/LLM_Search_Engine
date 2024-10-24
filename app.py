@@ -53,34 +53,6 @@ if prompt := st.chat_input(placeholder="Ask me anything..."):
         st.session_state.messages.append({'role': 'assistant', "content": response})
         st.write(response)
 
-# UI Enhancements
-st.markdown("""
-<style>
-    body {
-        background-image: url('https://cdn.pixabay.com/photo/2019/05/13/12/50/chatbot-4204968_1280.png'); /* Direct link to an image */
-        background-size: cover;
-        background-position: center;
-        color: #fff; /* Default text color for better visibility on dark backgrounds */
-    }
-    .st-chat-message {
-        margin-bottom: 10px;
-        border-radius: 10px; /* Rounded corners for chat messages */
-        padding: 10px; /* Padding for chat messages */
-    }
-    .st-chat-message-user {
-        background-color: rgba(232, 240, 254, 0.8); /* User message background with transparency */
-        color: #333; /* User message text color */
-    }
-    .st-chat-message-assistant {
-        background-color: rgba(225, 245, 254, 0.8); /* Assistant message background with transparency */
-        color: #333; /* Assistant message text color */
-    }
-    .stTextInput input {
-        background-color: #f9f9f9; /* Light background color */
-        border: 2px solid #ccc; /* Light gray border */
-        border-radius: 5px; /* Rounded corners */
-        padding: 10px; /* Padding for comfort */
-        font-size: 16px; /* Larger font size */
-    }
-</style>
-""", unsafe_allow_html=True)
+# Load the external CSS file
+with open('styles.css') as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
