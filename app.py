@@ -26,6 +26,12 @@ Explore the world of search using LangChain with integrated tools like Arxiv, Wi
 I am Sarvavidya (सर्वविद्या), your all-knowing guide to knowledge, helping you discover answers and insights from a variety of sources.
 """)
 
+# Load the external CSS file
+css_file_path = 'styles.css'  # Assuming styles.css is in the same directory
+
+with open(css_file_path) as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 # Session state for messages
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
@@ -52,7 +58,3 @@ if prompt := st.chat_input(placeholder="Ask me anything..."):
         response = search_agent.run(st.session_state.messages, callbacks=[st_cb])
         st.session_state.messages.append({'role': 'assistant', "content": response})
         st.write(response)
-
-# Load the external CSS file
-with open('styles.css') as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
