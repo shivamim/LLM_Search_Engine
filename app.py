@@ -19,7 +19,7 @@ wiki = WikipediaQueryRun(api_wrapper=api_wrapper)
 search = DuckDuckGoSearchRun(name="Search")
 
 # App Title and Description
-st.title("🔎 Sarvavidya - Enhanced Search Assistant")
+st.title("🔎 Sarvavidya ")
 st.write("""
 I am Sarvavidya (सर्वविद्या), your all-knowing guide to knowledge, helping you discover answers and insights from a variety of sources.
 """)
