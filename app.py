@@ -57,10 +57,10 @@ if prompt := st.chat_input(placeholder="Ask me anything..."):
 st.markdown("""
 <style>
     body {
-        background-image: url('https://cdn.pixabay.com/photo/2021/09/15/08/13/chatbot-6626193_1280.png');
+        background-image: url('https://cdn.pixabay.com/photo/2019/05/13/12/50/chatbot-4204968_1280.png'); /* Direct link to an image */
         background-size: cover;
         background-position: center;
-        color: #333; /* Default text color */
+        color: #fff; /* Default text color for better visibility on dark backgrounds */
     }
     .st-chat-message {
         margin-bottom: 10px;
@@ -68,11 +68,11 @@ st.markdown("""
         padding: 10px; /* Padding for chat messages */
     }
     .st-chat-message-user {
-        background-color: #e8f0fe; /* User message background */
+        background-color: rgba(232, 240, 254, 0.8); /* User message background with transparency */
         color: #333; /* User message text color */
     }
     .st-chat-message-assistant {
-        background-color: #e1f5fe; /* Assistant message background */
+        background-color: rgba(225, 245, 254, 0.8); /* Assistant message background with transparency */
         color: #333; /* Assistant message text color */
     }
     .stTextInput input {
