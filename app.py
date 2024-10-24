@@ -21,8 +21,6 @@ search = DuckDuckGoSearchRun(name="Search")
 # App Title and Description
 st.title("🔎 Sarvavidya - Enhanced Search Assistant")
 st.write("""
-Explore the world of search using LangChain with integrated tools like Arxiv, Wikipedia, and DuckDuckGo. Feel free to ask any question!
-
 I am Sarvavidya (सर्वविद्या), your all-knowing guide to knowledge, helping you discover answers and insights from a variety of sources.
 """)
 
